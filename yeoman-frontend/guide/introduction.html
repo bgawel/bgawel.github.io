@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>1 Yeoman-Frontend Plugin 0.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
+    <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
+    <script type="text/javascript">
+function addJsClass() {
+    var classes = document.body.className.split(" ");
+    classes.push("js");
+    document.body.className = classes.join(" ");
+}
+    </script>
+</head>
+
+<body class="body" onload="addJsClass();">
+<div id="navigation">
+    <ul>
+        <li>
+            <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)">
+                <a href="../guide/index.html" class="button">Table of contents</a>
+
+                <div id="nav-summary-childs" style="display:none;">
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/introduction.html"><strong>1</strong><span>Yeoman-Frontend Plugin</span></a>
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        <li class="separator selected">
+            <a id="ref-button" onclick="localToggle(); return false;" href="#">Quick Reference</a>
+        </li>
+    </ul>
+</div>
+<div id="header">
+    <div class="images clearfix">
+        
+        
+    </div>
+    <p>The Yeoman-Frontend is a plugin used for managing and processing frontend developed with Yeoman. The plugin integrates the frontend (preserving the Yeoman's directory structure) with a Grails web container during development of Grails backend application; it assembles the frontend into a Web Application Archive (WAR) file during deployment of Grails application.</p>
+</div>
+
+
+<table id="colset" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td id="col1">
+            <div id="main" class="corner-all">
+
+                
+
+                <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
+
+                
+
+
+                <div class="project">
+                    <h1>1 Yeoman-Frontend Plugin - Reference Documentation</h1>
+
+                    <p><strong>Authors:</strong> Bartek Gawel</p>
+
+                    <p><strong>Version:</strong> 0.1</p>
+
+                    
+                </div>
+
+                
+
+                
+
+<h1 id="introduction">1 Yeoman-Frontend Plugin</h1>
+The Grails Yeoman-Frontend is a plugin used for managing and processing frontend developed with Yeoman. The plugin integrates the frontend (preserving the Yeoman&#39;s directory structure) with a Grails web container during development of Grails backend application; it assembles the frontend into a Web Application Archive (WAR) file during deployment of Grails application.<p class="paragraph"/><h3>Introduction</h3><p class="paragraph"/>Yeoman-Frontend is intended to integrate frontend developed with Yeoman with a Grails backend application.
+The Yeoman build process replaces <a href="http://grails.org/plugin/resources" target="blank">resources-plugin</a> or <a href="http://grails.org/plugin/asset-pipeline" target="blank">asset-pipeline-plugin</a><p class="paragraph"/>In the Grails development mode, the plugin runs the <code><strong class="bold">grunt serve</strong></code> command in the background to allow Grunt's tasks to process on-the-fly changes made to frontend.<p class="paragraph"/>During a WAR assembly, the plugin runs the <code><strong class="bold">grunt build</strong></code> command to build the frontend and then a result from the <code><strong class="bold">dist</strong></code> directory is packaged into the WAR.
+Static assets are served by a <strong class="bold">filter</strong> (inspired by the one available in <a href="http://grails.org/plugin/asset-pipeline" target="blank">asset-pipeline-plugin</a>) that leverages HTTP cache headers.<p class="paragraph"/><h3>Prerequisite</h3>
+<ul class="star">
+<li>The <a href="http://yeoman.io/codelab/setup.html" target="blank">Yeoman toolset</a> is installed</li>
+<li>A Yeoman application in <a href="http://yeoman.io/codelab/scaffold-app.html" target="blank">generated</a> in <code>yo.frontend.dir</code> (see  <em class="italic">Configuration</em> )</li>
+</ul><p class="paragraph"/><h3>&#60;yo:index/&#62;</h3>
+Use the <code>yo:index</code> tag to define an entry point for Yeoman's application.
+Most likely you will want to replace Grails <code>index.html</code> content with <code>&#60;yo:index/&#62;</code>.
+See <a href="https://github.com/bgawel/yeoman-frontend/test/dummy-app/grails-app/views/index.html" target="blank">index.html in a dummy Grails app</a> as an example.<p class="paragraph"/><h3>Configuration</h3><p class="paragraph"/>The plugin needs no configuration as long as a Yeoman application is placed under <code>grails-app/frontend</code><p class="paragraph"/><table class="wiki-table" cellpadding="0" cellspacing="0" border="0"><tr><th><strong class="bold">Property</strong></th><th><strong class="bold">Type</strong></th><th><strong class="bold">Default value</strong></th><th><strong class="bold">Description</strong></th></tr><tr class="table-odd"><td><code>yo.frontend.dir</code></td><td><code>String</code></td><td><code>'grails-app/frontend'</code></td><td>Yeoman-generated app directory; this directory should contain <code>Gruntfile.js</code></td></tr></table><p class="paragraph"/>Development settings:
+<table class="wiki-table" cellpadding="0" cellspacing="0" border="0"><tr><th><strong class="bold">Property</strong></th><th><strong class="bold">Type</strong></th><th><strong class="bold">Default value</strong></th><th><strong class="bold">Description</strong></th></tr><tr class="table-odd"><td><code>yo.runappcmd.off</code></td><td><code>Boolean</code></td><td><code>false</code></td><td>Set to <code>false</code> if no command should be run with <code>grails run-app</code>; alternatively you can pass a property <code>-Dyo.runappcmd.off=&#60;Boolean&#62;</code> with the <code>run-app</code>. Useful if you want to run <code>grunt serve</code> outside of plugin</td></tr><tr class="table-even"><td><code>yo.runappcmd.exe</code></td><td><code>String</code></td><td><code>'grunt serve'</code></td><td>A command to run with <code>grails run-app</code>; alternatively you can pass a property <code>-Dyo.runappcmd.exe=&#60;your command&#62;</code> with the <code>run-app</code></td></tr><tr class="table-odd"><td><code>yo.frontend.app.dir</code></td><td><code>String</code></td><td><code>'app'</code></td><td>Yeoman's source code directory path relative to <code>yo.frontend.dir</code></td></tr><tr class="table-even"><td><code>yo.frontend.app.index</code></td><td><code>String</code></td><td><code>'index.html'</code></td><td>Index file path relative to <code>yo.frontend.app.dir</code></td></tr><tr class="table-odd"><td><code>yo.frontend.tmp.dir</code></td><td><code>String</code></td><td><code>'.tmp'</code></td><td>Yeoman's tmp directory path relative to <code>yo.frontend.dir</code>; the plugin looks for an asset in this directory if not found in <code>yo.frontend.app.dir</code></td></tr></table><p class="paragraph"/>WAR assembly settings:
+<table class="wiki-table" cellpadding="0" cellspacing="0" border="0"><tr><th><strong class="bold">Property</strong></th><th><strong class="bold">Type</strong></th><th><strong class="bold">Default value</strong></th><th><strong class="bold">Description</strong></th></tr><tr class="table-odd"><td><code>yo.warcmd.off</code></td><td><code>Boolean</code></td><td><code>false</code></td><td>Set to <code>false</code> if no command should be run with <code>grails run-war</code> and <code>grails war</code>; alternatively you can pass a property <code>-Dyo.warcmd.off=&#60;Boolean&#62;</code> with the Grails command</td></tr><tr class="table-even"><td><code>yo.warcmd.exe</code></td><td><code>String</code></td><td><code>'grunt build'</code></td><td>A command to run with <code>grails run-war</code> and <code>grails war</code>; alternatively you can pass a property <code>-Dyo.warcmd.exe=&#60;your command&#62;</code> with the Grails command</td></tr><tr class="table-odd"><td><code>yo.frontend.dist.dir</code></td><td><code>String</code></td><td><code>'dist'</code></td><td>Yeoman's distribution directory path relative to <code>yo.frontend.dir</code></td></tr><tr class="table-even"><td><code>yo.frontend.dist.exludes</code></td><td><code>List</code></td><td><code>&#91;'.htaccess', '404.html', 'robots.txt']</code></td><td>Files/directories to exclude from <code>yo.frontend.dist.dir</code> while assembling a WAR</td></tr></table><p class="paragraph"/>Settings of the filter that leverages HTTP cache headers for assets:
+<table class="wiki-table" cellpadding="0" cellspacing="0" border="0"><tr><th><strong class="bold">Property</strong></th><th><strong class="bold">Type</strong></th><th><strong class="bold">Default value</strong></th><th><strong class="bold">Description</strong></th></tr><tr class="table-odd"><td><code>yo.filter.off</code></td><td><code>Boolean</code></td><td><code>false</code></td><td><code>false</code> does not add filter mappings to <code>web.xml</code></td></tr><tr class="table-even"><td><code>yo.filter.urlPatterns</code></td><td><code>List</code></td><td><code>&#91;'/scripts/&#42;', '/styles/&#42;', '/images/&#42;']</code></td><td>URL patterns which the filter is triggered for</td></tr><tr class="table-odd"><td><code>yo.filter.checkGzip</code></td><td><code>Boolean</code></td><td><code>false</code></td><td>Check if a <code>.gz</code> version of a required asset is available and if so, return it</td></tr><tr class="table-even"><td><code>yo.filter.maxAge</code></td><td><code>Integer</code></td><td><code>31536000</code></td><td>Default <code>max-age</code> seconds of the <code>Cache-Control</code> header</td></tr><tr class="table-odd"><td><code>yo.filter.mimeTypeMaxAge</code></td><td><code>Map</code></td><td><code>&#91;:]</code></td><td><code>max-age</code> seconds of the <code>Cache-Control</code> header per MIME type, e.g. <code>&#91;'text/html':3600]</code>; if a mapping is not found, return <code>yo.filter.maxAge</code></td></tr><tr class="table-even"><td><code>yo.filter.etagStrategy</code></td><td><code>String/Closure</code></td><td><code>'filename'</code></td><td>A strategy to retrieve an ETag value for an asset represented as a <a href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/core/io/Resource.html" target="blank">org.springframework.core.io.Resource</a>,  <em class="italic">see a note below</em> </td></tr><tr class="table-odd"><td><code>yo.filter.etagPattern</code></td><td><code>String</code></td><td><code>'^(&#91;0-9a-f]+)&#92;.&#91;0-9A-Za-z_.]+&#92;..+'</code></td><td>A string pattern (<code>&#60;fingerprint&#62;.&#60;name&#62;.&#60;extension&#62;</code>) to check for a fingerprint in a file's name for <code>yo.filter.etagStrategy</code>=<code>'lastModifiedIfNotFilename'</code> or <code>'timestampIfNotFilename'</code></td></tr></table>
+<blockquote class="note">
+<h5><code>yo.filter.etagStrategy</code>:</h5>
+<ul class="star">
+<li>Possible string values (the last three should be used together with <code>yo.filter.mimeTypeMaxAge</code>):</li>
+<ul class="star">
+<li><code>'filename'</code> - ETag = file's name; fine if assets' names contain a fingerprint</li>
+<li><code>'timestamp'</code> - ETag = timestamp of access</li>
+<li><code>'lastModifiedIfNotFilename'</code> - ETag = file's name for fingerprinted assets' names, otherwise last modified date of file</li>
+<li><code>'timestampIfNotFilename'</code> - ETag = file's name for fingerprinted assets' names, otherwise timestamp of access.</li>
+</ul>
+<li>Your custom <code>Closure</code> (available objects: <code>request, response, resource, applicationContext, servletContext</code>)</li>
+</ul><p class="paragraph"/></blockquote><p class="paragraph"/><h3>Known limitations</h3>
+In the development mode if a new file/directory is created in the <strong class="bold">root</strong> directory of <code>yo.frontend.app.dir</code>, the file/directory will not be served by the plugin until the application is restarted. New files/directories being added to sub-directories of <code>yo.frontend.app.dir</code> existing prior <code>run-app</code> will be served.<p class="paragraph"/><h3>Release History</h3>
+<ul class="star">
+<li>Oct 29, 2014</li>
+<ul class="star">
+<li>0.1 Release - First version</li>
+</ul></ul><p class="paragraph"/>
+
+
+                <div style="clear:both;margin-top:15px;"></div>
+                
+                <div style="clear:both"></div>
+            </div>
+        </td>
+        <td id="col2">
+            <div class="local clearfix">
+                <div class="local-title">
+                    <a href="../guide/index.html" target="mainFrame">Quick Reference</a>
+                    <span class="toggle">(<a href="#" onclick="localToggle(); return false;">hide</a>)</span>
+                </div>
+                <div class="menu">
+                    
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div id="footer">
+    
+    
+</div>
+
+<script type="text/javascript" src="../js/docs.js"></script>
+
+</body>
+</html>
