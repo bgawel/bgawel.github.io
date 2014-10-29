@@ -2,7 +2,7 @@
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
     <head>
-        <title>Yeoman Frontend Plugin 0.1</title>
+        <title>Yeoman Frontend Plugin 0.1-RC1</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8" />
         <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8" />
@@ -52,7 +52,7 @@ function addJsClass(el) {
                         <div class="project">
                             <h1>Yeoman Frontend Plugin - Reference Documentation</h1>
                             <p><strong>Authors:</strong> Bartek Gawel</p>
-                            <p><strong>Version:</strong> 0.1</p>
+                            <p><strong>Version:</strong> 0.1-RC1</p>
                             
                         </div>
 
@@ -93,11 +93,14 @@ See <a href="https://github.com/bgawel/yeoman-frontend/test/dummy-app/grails-app
 </ul>
 <li>Your custom <code>Closure</code> (available objects: <code>request, response, resource, applicationContext, servletContext</code>)</li>
 </ul><p class="paragraph"/></blockquote><p class="paragraph"/><h3>Known limitations</h3>
-In the development mode if a new file/directory is created in the <strong class="bold">root</strong> directory of <code>yo.frontend.app.dir</code>, the file/directory will not be served by the plugin until the application is restarted. New files/directories being added to sub-directories of <code>yo.frontend.app.dir</code> existing prior <code>run-app</code> will be served.<p class="paragraph"/><h3>Release History</h3>
+<ul class="star">
+<li>In the development mode if a new file/directory is created in the <strong class="bold">root</strong> directory of <code>yo.frontend.app.dir</code>, the file/directory will not be served by the plugin until the application is restarted. New files/directories being added to sub-directories of <code>yo.frontend.app.dir</code> existing prior <code>run-app</code> will be served.</li>
+<li>Be aware of this <a href="https://jira.grails.org/browse/GRAILS-11229" target="blank">Grails bug</a>; the event <code>eventConfigureTomcat</code> must be invoked to run the plugin in the development mode.</li>
+</ul><p class="paragraph"/><h3>Release History</h3>
 <ul class="star">
 <li>Oct 29, 2014</li>
 <ul class="star">
-<li>0.1 Release - First version</li>
+<li>0.1-RC1 - First version (tested on Linux, Windows with Grails versions: 2.3.5, 2.4.3)</li>
 </ul></ul><p class="paragraph"/>
 
                     </div>
