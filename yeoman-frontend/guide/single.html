@@ -2,7 +2,7 @@
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
     <head>
-        <title>Yeoman Frontend Plugin 0.2</title>
+        <title>Yeoman Frontend Plugin 0.3</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8" />
         <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8" />
@@ -52,7 +52,7 @@ function addJsClass(el) {
                         <div class="project">
                             <h1>Yeoman Frontend Plugin - Reference Documentation</h1>
                             <p><strong>Authors:</strong> Bartek Gawel</p>
-                            <p><strong>Version:</strong> 0.2</p>
+                            <p><strong>Version:</strong> 0.3</p>
                             
                         </div>
 
@@ -75,7 +75,7 @@ Static assets are served by a <strong class="bold">filter</strong> (inspired by 
 <li>A Yeoman application in <a href="http://yeoman.io/codelab/scaffold-app.html" target="blank">generated</a> in <code>yo.frontend.dir</code> (see  <em class="italic">Configuration</em> )</li>
 </ul><p class="paragraph"/><h3>3. Installation</h3>
 Add to <code>BuildConfig.groovy</code>:
-<div class="code"><pre>runtime ':yeoman&#45;frontend:0.2'</pre></div><p class="paragraph"/><h3>4. Usage: &#60;yo:index/&#62;</h3>
+<div class="code"><pre>runtime ':yeoman&#45;frontend:0.3'</pre></div><p class="paragraph"/><h3>4. Usage: &#60;yo:index/&#62;</h3>
 Use the <code>yo:index</code> tag to define an entry point for the Yeoman application.
 Most likely you will simply replace Grails <code>index.html</code> content with <code>&#60;yo:index/&#62;</code>.
 See <a href="https://github.com/bgawel/yeoman-frontend/blob/master/test/dummy-app/grails-app/views/index.gsp" target="blank">index.html</a> in a <a href="https://github.com/bgawel/yeoman-frontend/blob/master/test/dummy-app" target="blank">dummy Grails app</a> as an example of usage.<p class="paragraph"/><h3>5. LiveReload</h3>
@@ -115,6 +115,10 @@ See the <a href="https://github.com/bgawel/yeoman-frontend/blob/master/test/dumm
 <li>Be aware of this <a href="https://jira.grails.org/browse/GRAILS-11229" target="blank">Grails bug</a>; the event <code>eventConfigureTomcat</code> must be invoked to run the plugin in the Grails development mode.</li>
 </ul><p class="paragraph"/><h3>8. Release History</h3>
 <ul class="star">
+<li>Jul 4, 2015</li>
+<ul class="star">
+<li>0.3 - made the plugin work with Grails 2.5.0</li>
+</ul>
 <li>Nov 14, 2014</li>
 <ul class="star">
 <li>0.2 - version 0.1 was published to Grails repository with invalid POM file; see this <a href="https://github.com/bgawel/yeoman-frontend/issues/1" target="blank">bug #1</a></li>
